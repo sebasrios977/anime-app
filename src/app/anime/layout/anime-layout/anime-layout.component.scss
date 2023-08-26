@@ -1,0 +1,70 @@
+@use '../../../globales/variables.scss' as v;
+@use '../../../globales/mixins.scss' as m;
+
+
+.nav {
+
+  margin: 5rem 0;
+
+  &__logo {
+    width: 20rem;
+    cursor: pointer;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include m.mq(v.$desktop){
+      width: 25rem;
+    }
+
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &-phone {
+
+    @include m.mq(v.$tablet){
+      display: none;
+    }
+
+    &__title {
+      color: v.$colorPrimario;
+      text-transform: uppercase;
+    }
+
+    &__item {
+      cursor: pointer;
+      margin-top: 1rem;
+      padding: .5rem;
+
+      list-style: none;
+      color: v.$colorNegro;
+      transition: transform .4;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+  }
+
+  &__searchbox {
+
+    display: none;
+    @include m.mq(v.$desktop){
+      display: block;
+    }
+  }
+
+  &-tablet {
+    display: none;
+
+    @include m.mq(v.$tablet){
+      display: block;
+    }
+  }
+}

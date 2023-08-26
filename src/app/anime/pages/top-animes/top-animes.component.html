@@ -1,0 +1,18 @@
+<main class="top m-0 p-2 lg:p-5 mt-8 lg:mt-0 grid flex-row align-items-center justify-content-center">
+
+  <div
+    class="top__card border-round-lg select-none p-0 m-3"
+    *ngFor="let anime of topAnimes"
+  >
+    <div class="top__image">
+      <img [src]="anime.images['jpg'].large_image_url" [alt]="anime.title">
+    </div>
+
+    <div class="top__info p-3">
+      <h3 class="top__title">{{ anime.title }}</h3>
+      <p class="top__text">{{anime.synopsis | slice:0:180}}...<span> See more</span></p>
+    </div>
+
+  </div>
+
+</main>

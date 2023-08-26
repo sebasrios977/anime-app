@@ -1,0 +1,68 @@
+@use '../../../globales/variables.scss' as v;
+@use '../../../globales/mixins.scss' as m;
+
+.sidebar {
+
+  &__grid {
+    height: 20vh;
+    width: 90vw;
+    overflow-x: scroll;
+
+    @include m.mq(v.$desktop){
+      overflow-x: hidden;
+      width: 24rem;
+      height: 65vh;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__heading {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: v.$colorPrimario;
+    font-weight: 700;
+  }
+
+  &__image {
+    opacity: .6;
+    transition: all .3s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__episode {
+    border: 1px solid v.$colorPrimario;
+  }
+
+  &__title {
+    color: v.$colorPrimario;
+    font-weight: 700;
+  }
+
+  &__chapter {
+    color: v.$colorGris;
+  }
+}

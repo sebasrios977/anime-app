@@ -1,0 +1,59 @@
+<section class="nav flex align-items-center justify-content-evenly my-5 mx-0 pt-2 flex-wrap">
+
+  <div routerLink="home" class="nav__logo w-20rem cursor-pointer">
+    <img src="./assets/logo.png" alt="" class="nav__image w-full">
+  </div>
+
+  <span class="nav__search mt-7 lg:mt-0 relative flex align-items-center justify-content-center flex-order-2 lg:flex-order-1 w-full lg:w-auto">
+    <form [formGroup]="myForm">
+      <input (blur)="onDeleteSpecificAnime()" formControlName="searchInput" class="w-25rem h-3rem text-xl" type="text" pInputText placeholder="Search anime" />
+    </form>
+
+    <div
+      *ngIf="specificAnime.length > 0"
+      class="window__animefound h-20rem w-25rem absolute top-100 overflow-auto z-1 border-round-2xl"
+    >
+      <div
+        *ngFor="let anime of specificAnime"
+        class="window__container flex p-2 align-items-center gap-2"
+      >
+        <div
+          class="window__image h-6rem w-6rem border-round-2xl overflow-hidden cursor-pointer"
+        >
+          <img
+            [src]="anime.images['jpg'].image_url"
+            [alt]="anime.title"
+            class="w-full h-full"
+          >
+        </div>
+        <div class="window__info">
+          <span class="window__name block">{{ anime.title }}</span>
+          <span class="window__type block">{{ anime.type }}</span>
+          <a [href]="genre.url" *ngFor="let genre of anime.genres" class="window__genre cursor-pointer">{{ genre.name }} </a>
+        </div>
+      </div>
+
+    </div>
+  </span>
+
+  <nav class="nav-tablet hidden md:block flex-order-1">
+    <p-tabMenu styleClass="text-xl" [model]="menuItems" [activeItem]="activeItem"></p-tabMenu>
+  </nav>
+
+  <nav class="nav-phone block md:hidden">
+    <p-sidebar [(visible)]="navbarVisible" position="right">
+        <h3 class="nav-phone__title text-2xl">Menu</h3>
+        <ul class="list-group list-group-flush">
+          <li
+            *ngFor="let item of menuItems"
+            [routerLink]="[item.routerLink]"
+            class="nav-phone__item text-xl"
+          >
+            {{item.label}}
+          </li>
+        </ul>
+    </p-sidebar>
+    <p-button (click)="navbarVisible = true" icon="pi pi-align-justify" styleClass="w-4rem h-4rem"></p-button>
+  </nav>
+
+</section>

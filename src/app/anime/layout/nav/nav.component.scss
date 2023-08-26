@@ -1,0 +1,93 @@
+@use '../../../globales/variables.scss' as v;
+@use '../../../globales/mixins.scss' as m;
+
+
+.nav {
+
+  &__logo {
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &-phone {
+
+    &__title {
+      color: v.$colorPrimario;
+      text-transform: uppercase;
+    }
+
+    &__item {
+      cursor: pointer;
+      margin-top: 1rem;
+      padding: .5rem;
+
+      list-style: none;
+      color: v.$colorNegro;
+
+      &:hover {
+        color: v.$colorPrimario;
+        font-weight: 700;
+      }
+    }
+
+  }
+}
+
+.window {
+  &__animefound {
+
+    background-color: v.$colorPrimario;
+
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+    &::-webkit-scrollbar {
+      margin: 2rem;
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__image {
+
+    img {
+      object-fit: cover;
+      transition: transform .3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__name {
+    color: v.$colorBlanco;
+  }
+
+  &__genre {
+    text-decoration: none;
+    padding: 0;
+    margin: 1px;
+    color: v.$colorGris;
+    border-bottom: 1px solid v.$colorGris;
+  }
+}
