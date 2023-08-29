@@ -18,7 +18,7 @@
         class="window__container flex p-2 align-items-center gap-2"
       >
         <div
-          class="window__image h-6rem w-6rem border-round-2xl overflow-hidden cursor-pointer"
+          class="window__image h-7rem w-7rem border-round-2xl overflow-hidden cursor-pointer"
         >
           <img
             [src]="anime.images['jpg'].image_url"
@@ -26,10 +26,10 @@
             class="w-full h-full"
           >
         </div>
-        <div class="window__info">
+        <div class="window__info w-15rem">
           <span class="window__name block">{{ anime.title }}</span>
           <span class="window__type block">{{ anime.type }}</span>
-          <a [href]="genre.url" *ngFor="let genre of anime.genres" class="window__genre cursor-pointer">{{ genre.name }} </a>
+          <a *ngFor="let genre of anime.genres" [href]="genre.url" class="window__genre cursor-pointer">{{ genre.name }} </a>
         </div>
       </div>
 

@@ -25,15 +25,15 @@ export class AnimeService {
     const url = `${this.baseUrl}/anime`;
     return this.http.get<Jikan>(url)
       .pipe(
-        map(({data})=> {
+        map(({data}) => {
           this.allAnimes = data;
           return this.allAnimes;
         }),
       );
   }
 
-  getTopAnimes(): Observable<Anime[]> {
-    if (this.allAnimes.length > 0) {
+  getTopAnimes() {
+    if (this.topAnimes.length > 0) {
       return of(this.topAnimes);
     }
 
@@ -48,7 +48,7 @@ export class AnimeService {
   }
 
   getLateSeason(): Observable<Anime[]> {
-    if (this.allAnimes.length > 0) {
+    if (this.lateSeason.length > 0) {
       return of(this.lateSeason);
     }
 

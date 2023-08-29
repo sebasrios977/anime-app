@@ -9,6 +9,7 @@ import { Anime } from 'src/app/interfaces/jikanResponse.interface';
 export class HomeComponent implements OnInit {
 
   public allAnimes: Anime[] = [];
+  public loading: boolean = true;
   constructor(private animeService: AnimeService) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.animeService.getAllAnimes()
       .subscribe(data => {
         this.allAnimes = data;
+        this.loading = false;
     });
   }
 }

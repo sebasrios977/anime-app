@@ -10,7 +10,9 @@ import { AnimeLayoutComponent } from './layout/anime-layout/anime-layout.compone
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavComponent } from './layout/nav/nav.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { SpinnerComponent } from './pages/spinner/spinner.component';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TagsComponent,
     AnimeLayoutComponent,
     SidebarComponent,
-    NavComponent
+    NavComponent,
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@ import { Anime } from 'src/app/interfaces/jikanResponse.interface';
 export class SeasonAnimesComponent {
 
   public lateSeason: Anime[] = [];
+  public loading: boolean = true;
   constructor(private animeService: AnimeService) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class SeasonAnimesComponent {
     this.animeService.getLateSeason()
       .subscribe(data => {
         this.lateSeason = data;
+        this.loading = false;
     });
   }
 }

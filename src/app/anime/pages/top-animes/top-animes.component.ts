@@ -9,6 +9,7 @@ import { AnimeService } from '../../services/anime.service';
 export class TopAnimesComponent {
 
   public topAnimes: Anime[] = [];
+  public loading: boolean = true;
   constructor(private animeService: AnimeService) {}
 
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class TopAnimesComponent {
     this.animeService.getTopAnimes()
       .subscribe(data => {
         this.topAnimes = data;
+        this.loading = false;
     });
   }
 }
