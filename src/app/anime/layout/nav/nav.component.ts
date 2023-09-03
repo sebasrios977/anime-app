@@ -47,7 +47,7 @@ export class NavComponent {
   onDeleteSpecificAnime() {
     this.animeService.getSpecificAnime('')
       .pipe(
-        delay(100),
+        delay(1),
         tap(() => {
           this.specificAnime = [];
         })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { AnimeService } from '../../services/anime.service';
 import { Anime } from 'src/app/interfaces/jikanResponse.interface';
 
@@ -8,8 +8,11 @@ import { Anime } from 'src/app/interfaces/jikanResponse.interface';
 })
 export class HomeComponent implements OnInit {
 
+  @HostBinding('style.--screen-width') screenWidth: string = '100vw';
+
   public allAnimes: Anime[] = [];
   public loading: boolean = true;
+
   constructor(private animeService: AnimeService) {}
 
   ngOnInit(): void {

@@ -5,7 +5,7 @@
       *ngFor="let episode of recentEpisodes"
       class="sidebar__episode cursor-pointer overflow-hidden p-0 m-0 w-9rem h-13rem border-round-xl flex flex-column align-items-center"
     >
-      <div class="sidebar__image w-full h-15rem overflow-hidden">
+      <div class="sidebar__image overflow-hidden">
         <img
           [src]="episode.entry.images!['jpg'].image_url"
           alt=""

@@ -12,7 +12,8 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavComponent } from './layout/nav/nav.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-import { SpinnerComponent } from './pages/spinner/spinner.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AnimeContentComponent } from './components/anime-content/anime-content.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SpinnerComponent } from './pages/spinner/spinner.component';
     SidebarComponent,
     NavComponent,
     SpinnerComponent,
+    AnimeContentComponent,
   ],
   imports: [
     CommonModule,

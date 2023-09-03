@@ -1,19 +1,7 @@
-<main *ngIf="!loading; else content" class="seasons m-0 p-2 lg:p-5 mt-8 lg:mt-0 grid flex-row align-items-center justify-content-center">
-  <div
-    class="seasons__card border-round-lg select-none p-0 m-3"
-    *ngFor="let anime of lateSeason"
-  >
-    <div class="seasons__image">
-      <img [src]="anime.images['jpg'].large_image_url" [alt]="anime.title">
-    </div>
-
-    <div class="seasons__info p-3">
-      <h3 translate="no" class="seasons__title">{{ anime.title }}</h3>
-      <p class="seasons__text">{{anime.synopsis | slice:0:180}}...<span> See more</span></p>
-    </div>
-
-  </div>
-</main>
+<app-anime-content
+  *ngIf="!loading; else content"
+  [animes]="lateSeason"
+/>
 
 <ng-template #content>
   <app-spinner />
