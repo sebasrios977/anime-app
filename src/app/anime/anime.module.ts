@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AnimeContentComponent } from './components/anime-content/anime-content.component';
 import { AnimeComponent } from './pages/anime/anime.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AnimeComponent } from './pages/anime/anime.component';
     SpinnerComponent,
     AnimeContentComponent,
     AnimeComponent,
+    SearchBarComponent,
   ],
   imports: [
     CommonModule,

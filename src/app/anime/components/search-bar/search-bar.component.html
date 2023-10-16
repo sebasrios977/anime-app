@@ -1,0 +1,35 @@
+<div class="searchbar relative">
+  <form [formGroup]="myForm" class="searchbar__form relative flex align-items-center">
+    <input formControlName="searchInput" class="searchbar__input w-25rem h-3rem text-xl" type="text" pInputText placeholder="Search anime" />
+    <i (click)="myForm.controls['searchInput'].setValue('')" class="searchbar__close pi pi-times absolute right-0 mr-3 p-1 cursor-pointer" style="font-size: .8rem"></i>
+  </form>
+
+  <div
+    *ngIf="animesFound.length > 0"
+    [class.h-8rem]="animesFound.length == 1"
+    [class.h-16rem]="animesFound.length == 2"
+    [class.h-24rem]="animesFound.length >= 3"
+    class="anime w-25rem absolute top-100 overflow-auto z-1 border-round-md"
+  >
+    <div
+      *ngFor="let anime of animesFound"
+      class="anime__container flex p-2 align-items-center gap-2"
+    >
+      <div
+        class="anime__image h-7rem w-7rem border-round-2xl overflow-hidden cursor-pointer"
+      >
+        <img
+          [src]="anime.images['jpg'].image_url"
+          [alt]="anime.title"
+          class="w-full h-full"
+        >
+      </div>
+      <div class="anime__info w-15rem">
+        <span class="anime__name block">{{ anime.title }}</span>
+        <span class="anime__type block">{{ anime.type }}</span>
+        <a *ngFor="let genre of anime.genres" [href]="genre.url" class="anime__genre cursor-pointer">{{ genre.name }} </a>
+      </div>
+    </div>
+
+  </div>
+</div>

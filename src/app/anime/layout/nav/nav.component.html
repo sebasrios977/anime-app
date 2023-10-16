@@ -1,46 +1,12 @@
-<section class="nav flex align-items-center justify-content-evenly my-5 mx-0 pt-2 flex-wrap">
+<section class="nav flex flex-wrap align-items-center justify-content-evenly my-5">
 
   <div routerLink="home" class="nav__logo w-20rem cursor-pointer">
     <img src="./assets/logo.png" alt="" class="nav__image w-full">
   </div>
 
-  <span class="nav__search mt-7 lg:mt-0 relative flex align-items-center justify-content-center flex-order-2 lg:flex-order-1 w-full lg:w-auto">
-    <form [formGroup]="myForm" class="nav__search-form flex align-items-center">
-      <input formControlName="searchInput" class="nav__search-input w-25rem h-3rem text-xl" type="text" pInputText placeholder="Search anime" />
-      <i (click)="myForm.controls['searchInput'].setValue('')" class="nav__search-close pi pi-times absolute right-0 mr-3 p-1 cursor-pointer" style="font-size: .8rem"></i>
-    </form>
+  <anime-search-bar class="flex flex-order-2 lg:flex-order-1 align-items-center justify-content-center w-full lg:w-auto mt-7 lg:mt-0" />
 
-    <div
-      *ngIf="animesFound.length > 0"
-      [class.h-8rem]="animesFound.length == 1"
-      [class.h-16rem]="animesFound.length == 2"
-      [class.h-24rem]="animesFound.length >= 3"
-      class="window__animefound w-25rem absolute top-100 overflow-auto z-1 border-round-md"
-    >
-      <div
-        *ngFor="let anime of animesFound"
-        class="window__container flex p-2 align-items-center gap-2"
-      >
-        <div
-          class="window__image h-7rem w-7rem border-round-2xl overflow-hidden cursor-pointer"
-        >
-          <img
-            [src]="anime.images['jpg'].image_url"
-            [alt]="anime.title"
-            class="w-full h-full"
-          >
-        </div>
-        <div class="window__info w-15rem">
-          <span class="window__name block">{{ anime.title }}</span>
-          <span class="window__type block">{{ anime.type }}</span>
-          <a *ngFor="let genre of anime.genres" [href]="genre.url" class="window__genre cursor-pointer">{{ genre.name }} </a>
-        </div>
-      </div>
-
-    </div>
-  </span>
-
-  <nav class="nav-tablet hidden md:block flex-order-1">
+  <nav class="nav-tablet hidden md:block">
     <p-tabMenu styleClass="text-xl" [model]="menuItems" [activeItem]="activeItem"></p-tabMenu>
   </nav>
 
