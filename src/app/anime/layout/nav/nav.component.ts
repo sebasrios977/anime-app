@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
-import { debounceTime, delay, switchMap, tap } from 'rxjs';
+import { debounceTime, switchMap, tap } from 'rxjs';
 import { AnimeService } from '../../services/anime.service';
 import { Anime } from 'src/app/interfaces/jikanResponse.interface';
 
@@ -16,7 +16,7 @@ export class NavComponent {
   public myForm: FormGroup = this.fb.group({
     searchInput: [''],
   });
-  public specificAnime: Anime[] = [];
+  public animesFound: Anime[] = [];
   public navbarVisible: boolean = false;
   public activeItem: MenuItem | undefined;
 
@@ -35,24 +35,14 @@ export class NavComponent {
           debounceTime(300),
           switchMap(searchTerm => this.animeService.getSpecificAnime(searchTerm)),
         )
-        .subscribe(resp => {
+        .subscribe(animes => {
           if(this.myForm.controls['searchInput'].value === '') {
-            this.onDeleteSpecificAnime();
+            this.animesFound = [];
             return;
           }
-          this.specificAnime = resp;
-        });
-  }
 
-  onDeleteSpecificAnime() {
-    this.animeService.getSpecificAnime('')
-      .pipe(
-        delay(1),
-        tap(() => {
-          this.specificAnime = [];
-        })
-      )
-      .subscribe();
+          this.animesFound = animes;
+        });
   }
 
 

@@ -12,6 +12,18 @@
     }
   }
 
+  &__search {
+
+    &-close {
+
+      &:hover {
+        background-color: v.$colorPrimario;
+        border-radius: 50%;
+        color: v.$colorBlanco;
+      }
+    }
+  }
+
   &-phone {
 
     &__title {
@@ -38,7 +50,7 @@
 
 .window {
   &__animefound {
-
+    overflow: hidden;
     background-color: v.$colorPrimario;
 
     scrollbar-width: thin;

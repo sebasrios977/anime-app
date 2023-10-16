@@ -1,8 +1,8 @@
 <app-anime-content
-  *ngIf="!loading; else content"
+  *ngIf="!loading; else spinner"
   [animes]="lateSeason"
 />
 
-<ng-template #content>
+<ng-template #spinner>
   <app-spinner />
 </ng-template>

@@ -4,6 +4,7 @@ import { AnimeLayoutComponent } from './layout/anime-layout/anime-layout.compone
 import { HomeComponent } from './pages/home/home.component';
 import { TopAnimesComponent } from './pages/top-animes/top-animes.component';
 import { SeasonAnimesComponent } from './pages/seasons-anime/season-anime';
+import { AnimeComponent } from './pages/anime/anime.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'top-animes', component: TopAnimesComponent },
       { path: 'season-animes', component: SeasonAnimesComponent },
+      { path: 'anime/:id', component: AnimeComponent },
       { path: '**', redirectTo: 'home' },
     ]
   }

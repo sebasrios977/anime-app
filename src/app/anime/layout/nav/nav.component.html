@@ -5,16 +5,20 @@
   </div>
 
   <span class="nav__search mt-7 lg:mt-0 relative flex align-items-center justify-content-center flex-order-2 lg:flex-order-1 w-full lg:w-auto">
-    <form [formGroup]="myForm">
-      <input (blur)="onDeleteSpecificAnime()" formControlName="searchInput" class="w-25rem h-3rem text-xl" type="text" pInputText placeholder="Search anime" />
+    <form [formGroup]="myForm" class="nav__search-form flex align-items-center">
+      <input formControlName="searchInput" class="nav__search-input w-25rem h-3rem text-xl" type="text" pInputText placeholder="Search anime" />
+      <i (click)="myForm.controls['searchInput'].setValue('')" class="nav__search-close pi pi-times absolute right-0 mr-3 p-1 cursor-pointer" style="font-size: .8rem"></i>
     </form>
 
     <div
-      *ngIf="specificAnime.length > 0"
-      class="window__animefound h-20rem w-25rem absolute top-100 overflow-auto z-1 border-round-2xl"
+      *ngIf="animesFound.length > 0"
+      [class.h-8rem]="animesFound.length == 1"
+      [class.h-16rem]="animesFound.length == 2"
+      [class.h-24rem]="animesFound.length >= 3"
+      class="window__animefound w-25rem absolute top-100 overflow-auto z-1 border-round-md"
     >
       <div
-        *ngFor="let anime of specificAnime"
+        *ngFor="let anime of animesFound"
         class="window__container flex p-2 align-items-center gap-2"
       >
         <div

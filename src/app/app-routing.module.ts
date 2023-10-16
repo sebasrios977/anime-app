@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
-    path: 'anime',
+    path: '',
     loadChildren: () => import('./anime/anime.module').then(m => m.AnimeModule),
   },
   {
     path: '**',
-    redirectTo: 'anime',
+    redirectTo: '',
   }
 ];
 
