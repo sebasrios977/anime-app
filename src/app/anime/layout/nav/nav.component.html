@@ -4,8 +4,6 @@
     <img src="./assets/logo.png" alt="" class="nav__image w-full">
   </div>
 
-  <anime-search-bar class="flex flex-order-2 lg:flex-order-1 align-items-center justify-content-center w-full lg:w-auto mt-7 lg:mt-0" />
-
   <nav class="nav-tablet hidden md:block">
     <p-tabMenu styleClass="text-xl" [model]="menuItems" [activeItem]="activeItem"></p-tabMenu>
   </nav>
@@ -25,5 +23,7 @@
     </p-sidebar>
     <p-button (click)="navbarVisible = true" icon="pi pi-align-justify" styleClass="w-4rem h-4rem"></p-button>
   </nav>
+
+  <anime-search-bar class="flex align-items-center justify-content-center w-full lg:w-auto mt-7 lg:mt-0" />
 
 </section>
