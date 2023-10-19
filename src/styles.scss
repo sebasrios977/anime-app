@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use './app//globales/variables.scss' as v;
 @import "primeicons/primeicons.css";
 
 html {
@@ -12,4 +13,8 @@ html {
 
 body {
   margin: 0;
+}
+
+.primaryColor > *:first-child {
+  color: v.$colorPrimario;
 }

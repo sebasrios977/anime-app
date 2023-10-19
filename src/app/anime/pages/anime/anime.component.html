@@ -1,1 +1,37 @@
-<p>anime works!</p>
+<main *ngIf="anime" class="anime mt-8">
+  <div class="anime__container flex flex-column md:flex-row justify-content-center align-items-center md:align-items-start gap-5 p-3">
+    <img class="anime__image w-15rem w-30rem" [src]="anime.images['jpg'].large_image_url" alt="">
+
+    <div class="anime__info">
+      <h1 class="anime__title">{{anime.title }}</h1>
+      <p class="anime__synopsis">{{anime.synopsis}}</p>
+      <p class="anime__type">Type: <b>{{anime.type}}</b></p>
+      <p *ngIf="anime.episodes" class="anime__episodes">Episodes: <b>{{anime.episodes}}</b></p>
+      <p class="anime__status">Status: <b>{{anime.status}}</b></p>
+      <p class="anime__score">Score: <b>{{anime.score}}</b></p>
+      <p class="anime__year">
+        Year:
+        <b *ngIf="anime.year">{{anime.year}}</b>
+        <b *ngIf="!anime.year">Not found</b>
+      </p>
+
+      <div class="anime__genres">
+        <p class="anime__genre flex gap-1">
+          Genres:
+          <b class="flex gap-1">
+            <a [href]="genre.url" *ngFor="let genre of anime.genres" class="underline cursor-pointer">{{genre.name}}</a>
+          </b>
+        </p>
+      </div>
+    </div>
+  </div> <!--Container-->
+
+  <div *ngIf="anime.trailer.embed_url" class="anime__video mt-8 flex align-items-center justify-content-center">
+    <iframe width="854" height="480" [src]="getSafeVideoUrl(anime.trailer.embed_url)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+
+  <div *ngIf="!anime.trailer.embed_url" class="anime__no-video mt-8 flex align-items-center justify-content-center select-none">
+    <i class="text-5xl">Video not available</i>
+  </div>
+
+</main>

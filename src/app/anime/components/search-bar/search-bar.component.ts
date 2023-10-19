@@ -11,10 +11,10 @@ import { AnimeService } from '../../services/anime.service';
 })
 export class SearchBarComponent {
 
-  public myForm: FormGroup = this.fb.group({
-    searchInput: [''],
-  });
   public animesFound: Anime[] = [];
+  public myForm: FormGroup = this.fb.group({
+    searchInput: ['', [], []],
+  });
 
   constructor(private fb: FormBuilder, private animeService: AnimeService) {}
 
@@ -22,7 +22,7 @@ export class SearchBarComponent {
       this.myForm.controls['searchInput'].valueChanges
         .pipe(
           debounceTime(300),
-          switchMap(searchTerm => this.animeService.getSpecificAnime(searchTerm)),
+          switchMap(searchTerm => this.animeService.getSearchedAnime(searchTerm)),
         )
         .subscribe(animes => {
           if(this.myForm.controls['searchInput'].value === '') {

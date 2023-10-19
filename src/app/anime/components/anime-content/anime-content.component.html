@@ -1,16 +1,20 @@
-<main class="content m-0 p-2 lg:p-5 mt-8 lg:mt-0 grid flex-row align-items-center justify-content-center">
-  <div
-    class="content__card border-round-lg select-none p-0 m-3"
-    *ngFor="let anime of animes"
-  >
-    <div class="content__image">
-      <img [src]="anime.images['jpg'].large_image_url" [alt]="anime.title">
-    </div>
+<main class="overflow-x-hidden flex flex-column justify-content-between align-items-center lg:align-items-start lg:flex-row">
+  <sidebar-anime />
 
-    <div class="content__info p-3">
-      <h3 translate="no" class="content__title">{{ anime.title }}</h3>
-      <p class="content__text">{{anime.synopsis | slice:0:180}}...<span> See more</span></p>
-    </div>
+  <div class="content m-0 p-2 lg:p-5 mt-8 lg:mt-0 grid flex-row align-items-center justify-content-center">
+    <div
+      class="content__card border-round-lg select-none p-0 m-3"
+      *ngFor="let anime of animes"
+    >
+      <div [routerLink]="['/anime/', anime.mal_id]" class="content__image cursor-pointer">
+        <img [src]="anime.images['jpg'].large_image_url" [alt]="anime.title">
+      </div>
 
+      <div class="content__info p-3">
+        <h3 translate="no" class="content__title">{{ anime.title }}</h3>
+        <p [routerLink]="['/anime/', anime.mal_id]" class="content__text">{{anime.synopsis | slice:0:180}}...<span> See more</span></p>
+      </div>
+
+    </div>
   </div>
 </main>

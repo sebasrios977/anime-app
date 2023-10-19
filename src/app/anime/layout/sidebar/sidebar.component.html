@@ -1,8 +1,11 @@
 <section class="sidebar">
   <h3 class="sidebar__heading mb-5 text-center">Recent Episodes</h3>
-  <div class="sidebar__grid grid flex-column lg:flex-row gap-3 align-items-center justify-content-center col-12">
+  <div
+    class="sidebar__grid grid flex-column lg:flex-row gap-3 align-items-center justify-content-center col-12"
+  >
     <div
       *ngFor="let episode of recentEpisodes"
+      [routerLink]="['/anime/', episode.entry.mal_id]"
       class="sidebar__episode cursor-pointer overflow-hidden p-0 m-0 w-9rem h-13rem border-round-xl flex flex-column align-items-center"
     >
       <div class="sidebar__image overflow-hidden">

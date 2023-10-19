@@ -20,9 +20,7 @@ export class SidebarComponent {
 
   recentEpisodesFromService() {
     this.animeService.getRecentEpisodes()
-      .subscribe(data => {
-        this.recentEpisodes = data;
-    });
+      .subscribe(data => this.recentEpisodes = data);
   }
 
 }

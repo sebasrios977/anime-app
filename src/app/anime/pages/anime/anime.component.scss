@@ -1,0 +1,29 @@
+@use '../../../globales/variables.scss' as v;
+@use '../../../globales/mixins.scss' as m;
+
+
+.anime {
+
+  &__info {
+    width: 30rem;
+
+    @include m.mq(v.$tablet){
+      width: 60rem;
+    }
+  }
+
+  &__title {
+    color: v.$colorPrimario;
+  }
+
+  &__video {
+    background-color: v.$colorPrimario;
+    padding: 2rem;
+  }
+
+  &__no-video {
+    color: v.$colorGris;
+  }
+}
+
+

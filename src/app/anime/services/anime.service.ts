@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, map, of, tap } from 'rxjs';
 import { Anime, Jikan } from 'src/app/interfaces/jikanResponse.interface';
 import { DataEpisodes, RecentEpisodes } from 'src/app/interfaces/dataEpisodes.interface';
+import { DataSpecificAnime, SingleAnime } from 'src/app/interfaces/singleAnime.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,14 @@ export class AnimeService {
   private baseUrl: string = 'https://api.jikan.moe/v4';
 
   constructor(private http: HttpClient) { }
+
+  getAnime(id: string): Observable<SingleAnime> {
+    const url = `${this.baseUrl}/anime/${id}`;
+    return this.http.get<DataSpecificAnime>(url)
+    .pipe(
+      map(({data}) => data),
+    )
+  }
 
   getAllAnimes(): Observable<Anime[]> {
     if (this.allAnimes.length > 0) {
@@ -83,7 +92,7 @@ export class AnimeService {
       );
   }
 
-  getSpecificAnime(query: string): Observable<Anime[]> {
+  getSearchedAnime(query: string): Observable<Anime[]> {
     const url = `${this.baseUrl}/anime?q=${query}`;
     return this.http.get<Jikan>(url)
       .pipe(

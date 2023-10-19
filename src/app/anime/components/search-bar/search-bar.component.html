@@ -19,6 +19,7 @@
         class="anime__image h-7rem w-7rem border-round-2xl overflow-hidden cursor-pointer"
       >
         <img
+          [routerLink]="['/anime', anime.mal_id]"
           [src]="anime.images['jpg'].image_url"
           [alt]="anime.title"
           class="w-full h-full"
